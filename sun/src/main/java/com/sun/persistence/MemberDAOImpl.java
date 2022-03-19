@@ -14,7 +14,7 @@ public class MemberDAOImpl implements MemberDAO {
 	private SqlSession sql;
 
 	// 매퍼 
-	private static String namespace = "com.kubg.mappers.memberMapper";
+	private static String namespace = "com.sun.mappers.memberMapper";
 
 	// 회원 가입
 	@Override

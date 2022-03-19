@@ -2,7 +2,7 @@
 	pageEncoding="UTF-8"%>
 <html>
 <head>
-<title>kubg</title>
+<title>SUN</title>
 </head>
 
 <style>
