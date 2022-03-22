@@ -114,7 +114,6 @@
 			<classifier>jdk15</classifier>
 		</dependency>
 
-
 		<!-- maria db -->
 		<dependency>
 			<groupId>org.mariadb.jdbc</groupId>
