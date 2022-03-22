@@ -8,6 +8,8 @@ import org.springframework.stereotype.Service;
 
 import com.sun.domain.CategoryVO;
 import com.sun.persistence.AdminDAO;
+import com.sun.domain.GoodsVO;
+
 
 @Service
 public class AdminServiceImpl implements AdminService {
@@ -21,4 +23,9 @@ public class AdminServiceImpl implements AdminService {
 		return dao.category();
 	}
 
+	// 상품등록
+	@Override
+	public void register(GoodsVO vo) throws Exception {
+		dao.register(vo);
+	}
 }

@@ -23,4 +23,10 @@
 		cateCodeRef, LEVEL FROM cte;
 	</select>
 
+	<!-- 상품 등록 -->
+	<insert id="register">
+		insert into tbl_goods (gdsNum, gdsName, cateCode, gdsPrice, gdsStock, gdsDes, gdsImg, gdsThumbImg)
+		values (NEXTVAL(tbl_goods_seq), #{gdsName}, #{cateCode}, #{gdsPrice}, #{gdsStock}, #{gdsDes}, #{gdsImg}, #{gdsThumbImg})
+	</insert>
+
 </mapper>
