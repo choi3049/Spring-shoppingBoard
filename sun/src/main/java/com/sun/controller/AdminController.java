@@ -10,10 +10,12 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.sun.domain.CategoryVO;
 import com.sun.service.AdminService;
 import com.sun.domain.GoodsVO;
+import com.sun.domain.GoodsViewVO;
 
 import net.sf.json.JSONArray;
 
@@ -25,14 +27,14 @@ public class AdminController {
 
 	@Inject
 	AdminService adminService;
-	
+
 	// 관리자화면
 	@RequestMapping(value = "/index", method = RequestMethod.GET)
 	public void getIndex() throws Exception {
 		logger.info("get index");
 	}
 
-	// 카테고
+	// 카테고리
 	@RequestMapping(value = "/goods/register", method = RequestMethod.GET)
 	public void getGoodsRegister(Model model) throws Exception {
 		logger.info("get goods register");
@@ -41,13 +43,32 @@ public class AdminController {
 		category = adminService.category();
 		model.addAttribute("category", JSONArray.fromObject(category));
 	}
-	
+
 	// 상품 등록
 	@RequestMapping(value = "/goods/register", method = RequestMethod.POST)
 	public String postGoodsRegister(GoodsVO vo) throws Exception {
 		adminService.register(vo);
-		
+
 		return "redirect:/admin/index";
 	}
+
+	// 상품 목록
+	@RequestMapping(value = "/goods/list", method = RequestMethod.GET)
+	public void getGoodsList(Model model) throws Exception {
+		logger.info("get goods list");
+
+		List<GoodsViewVO> list = adminService.goodslist();
+
+		model.addAttribute("list", list);
+	}
 	
+	
+	// 상품 조회
+	@RequestMapping(value = "/goods/view", method = RequestMethod.GET)
+	public void getGoodsview(@RequestParam("n") int gdsNum, Model model) throws Exception {
+		logger.info("get goods view");
+
+		GoodsViewVO goods = adminService.goodsView(gdsNum);
+		model.addAttribute("goods", goods);
+	}
 }

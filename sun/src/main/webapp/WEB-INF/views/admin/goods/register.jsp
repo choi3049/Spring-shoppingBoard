@@ -2,9 +2,9 @@
 	pageEncoding="UTF-8"%>
 <html>
 <head>
-<title>SUN Admin</title> ﻿
+<title>SUN Admin</title>
+
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-﻿
 
 
 <style>
