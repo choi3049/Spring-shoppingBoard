@@ -47,4 +47,10 @@ public class AdminServiceImpl implements AdminService {
 		dao.goodsModify(vo);
 	}
 
+	// 상품 삭제
+	@Override
+	public void goodsDelete(int gdsNum) throws Exception {
+		dao.goodsDelete(gdsNum);
+	}
+
 }

@@ -44,7 +44,8 @@
 		from tbl_goods g
 		inner join
 		goods_category c
-		on g.cateCode = c.cateCode
+		on
+		g.cateCode = c.cateCode
 	</select>
 
 	<!-- 상품 조회 + 카테고리 조인 -->
@@ -58,7 +59,8 @@
 		from tbl_goods g
 		inner join
 		goods_category c
-		on g.cateCode = c.cateCode
+		on
+		g.cateCode = c.cateCode
 		where g.gdsNum = #{gdsNum}
 	</select>
 
@@ -78,6 +80,13 @@
 		where gdsNum
 		= ${gdsNum}
 	</update>
+
+	<!-- 상품 삭제 -->
+	<delete id="goodsDelete">
+		delete
+		from tbl_goods
+		where gdsNum = #{gdsNum}
+	</delete>
 
 
 </mapper>
