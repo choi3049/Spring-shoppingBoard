@@ -61,8 +61,7 @@ public class AdminController {
 
 		model.addAttribute("list", list);
 	}
-	
-	
+
 	// 상품 조회
 	@RequestMapping(value = "/goods/view", method = RequestMethod.GET)
 	public void getGoodsview(@RequestParam("n") int gdsNum, Model model) throws Exception {
@@ -71,4 +70,18 @@ public class AdminController {
 		GoodsViewVO goods = adminService.goodsView(gdsNum);
 		model.addAttribute("goods", goods);
 	}
+
+	// 상품 수정
+	@RequestMapping(value = "/goods/modify", method = RequestMethod.GET)
+	public void getGoodsModify(@RequestParam("n") int gdsNum, Model model) throws Exception {
+		logger.info("get goods modify");
+
+		GoodsViewVO goods = adminService.goodsView(gdsNum); // GoodsViewVO형태 변수 goods에 상품 정보 저장
+		model.addAttribute("goods", goods);
+
+		List<CategoryVO> category = null;
+		category = adminService.category();
+		model.addAttribute("category", JSONArray.fromObject(category));
+	}
+
 }

@@ -11,8 +11,6 @@ import com.sun.persistence.AdminDAO;
 import com.sun.domain.GoodsVO;
 import com.sun.domain.GoodsViewVO;
 
-
-
 @Service
 public class AdminServiceImpl implements AdminService {
 
@@ -30,17 +28,23 @@ public class AdminServiceImpl implements AdminService {
 	public void register(GoodsVO vo) throws Exception {
 		dao.register(vo);
 	}
-	
+
 	// 상품목록
 	@Override
 	public List<GoodsViewVO> goodslist() throws Exception {
 		return dao.goodslist();
 	}
-	
+
 	// 상품조회
 	@Override
 	public GoodsViewVO goodsView(int gdsNum) throws Exception {
 		return dao.goodsView(gdsNum);
 	}
-	
+
+	// 상품 수정
+	@Override
+	public void goodsModify(GoodsVO vo) throws Exception {
+		dao.goodsModify(vo);
+	}
+
 }
