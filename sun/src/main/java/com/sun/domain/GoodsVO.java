@@ -3,6 +3,38 @@ package com.sun.domain;
 import java.util.Date;
 
 public class GoodsVO {
+	/*
+	 * gdsNum number not null, gdsName varchar2(50) not null, cateCode varchar2(30)
+	 * not null, gdsPrice number not null, gdsStock number null, gdsDes varchar(500)
+	 * null, gdsImg varchar(200) null, gdsDate date default sysdate,
+	 */
+	private int gdsNum;
+	private String gdsName;
+	private String cateCode;
+	private int gdsPrice;
+	private int gdsStock;
+	private String gdsDes;
+	private String gdsImg;
+	private Date gdsDate;
+
+	private String cateName;
+	private String gdsThumbImg;
+
+	public String getCateName() {
+		return cateName;
+	}
+
+	public void setCateName(String cateName) {
+		this.cateName = cateName;
+	}
+
+	public String getGdsThumbImg() {
+		return gdsThumbImg;
+	}
+
+	public void setGdsThumbImg(String gdsThumbImg) {
+		this.gdsThumbImg = gdsThumbImg;
+	}
 
 	public int getGdsNum() {
 		return gdsNum;
@@ -68,12 +100,4 @@ public class GoodsVO {
 		this.gdsDate = gdsDate;
 	}
 
-	private int gdsNum;
-	private String gdsName;
-	private String cateCode;
-	private int gdsPrice;
-	private int gdsStock;
-	private String gdsDes;
-	private String gdsImg;
-	private Date gdsDate;
 }

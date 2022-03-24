@@ -25,27 +25,21 @@
 
 	<!-- 상품 등록 -->
 	<insert id="register">
-		insert into tbl_goods (gdsNum, gdsName, cateCode,
-		gdsPrice, gdsStock, gdsDes, gdsImg, gdsThumbImg)
-		values
-		(NEXTVAL(tbl_goods_seq), #{gdsName}, #{cateCode}, #{gdsPrice},
-		#{gdsStock}, #{gdsDes}, #{gdsImg}
+		insert into tbl_goods (gdsNum, gdsName, cateCode, gdsPrice, gdsStock, gdsDes, gdsImg, gdsThumbImg)
+		values (NEXTVAL(tbl_goods_seq), #{gdsName}, #{cateCode}, #{gdsPrice}, #{gdsStock}, #{gdsDes}, #{gdsImg}, #{gdsThumbImg})
 	</insert>
 
-
-	<!-- 상품 목록 -->
 	<select id="goodslist" resultType="com.sun.domain.GoodsViewVO">
 		select
 		g.gdsNum, g.gdsName,
 		g.cateCode, c.cateCodeRef, c.cateName, gdsPrice, gdsStock,
 		gdsDes,
 		gdsImg, gdsDate,
-		g.gdsImg
+		g.gdsImg, g.gdsThumbImg
 		from tbl_goods g
 		inner join
 		goods_category c
-		on
-		g.cateCode = c.cateCode
+		on g.cateCode = c.cateCode
 	</select>
 
 	<!-- 상품 조회 + 카테고리 조인 -->
@@ -55,12 +49,11 @@
 		g.cateCode, c.cateCodeRef, c.cateName, gdsPrice, gdsStock,
 		gdsDes,
 		gdsImg, gdsDate,
-		g.gdsImg
+		g.gdsImg, g.gdsThumbImg
 		from tbl_goods g
 		inner join
 		goods_category c
-		on
-		g.cateCode = c.cateCode
+		on g.cateCode = c.cateCode
 		where g.gdsNum = #{gdsNum}
 	</select>
 
@@ -75,7 +68,8 @@
 		gdsStock = #{gdsStock},
 		gdsDes =
 		#{gdsDes},
-		gdsImg = #{gdsImg}
+		gdsImg = #{gdsImg},
+		gdsThumbImg = #{gdsThumbImg}
 
 		where gdsNum
 		= ${gdsNum}
@@ -88,5 +82,4 @@
 		where gdsNum = #{gdsNum}
 	</delete>
 
-
-</mapper>
+</mapper> 
