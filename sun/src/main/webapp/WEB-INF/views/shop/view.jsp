@@ -290,6 +290,33 @@ section.replyList div.replyContent {
 }
 </style>
 
+
+<script> 
+	function replyList(){
+		var gdsNum = ${view.gdsNum};
+		$.getJSON("/shop/view/replyList" + "?n=" + gdsNum, function(data){
+			var str = "";
+ 
+			$(data).each(function(){
+   
+				console.log(data);
+   
+				var repDate = new Date(this.repDate);
+				repDate = repDate.toLocaleDateString("ko-US")
+										
+				str += "<li data-gdsNum='" + this.gdsNum + "'>"
+				+ "<div class='userInfo'>"
+				+ "<span class='userName'>" + this.userName + "</span>"
+				+ "<span class='date'>" + repDate + "</span>"
+				+ "</div>"
+				+ "<div class='replyContent'>" + this.repCon + "</div>"
+				+ "</li>";           
+			});
+			$("section.replyList ol").html(str);
+		});
+	}
+</script>
+
 </head>
 <body>
 	<div id="root">
@@ -390,14 +417,40 @@ section.replyList div.replyContent {
 							<section class="replyForm">
 								<form role="form" method="post" autocomplete="off">
 
-									<input type="hidden" name="gdsNum" value="${view.gdsNum}">
+									<input type="hidden" name="gdsNum" id="gdsNum" value="${view.gdsNum}">
 
 									<div class="input_area">
 										<textarea name="repCon" id="repCon"></textarea>
 									</div>
 
 									<div class="input_area">
-										<button type="submit" id="reply_btn">소감 남기기</button>
+										<button type="button" id="reply_btn">소감 남기기</button>
+
+										<script>
+									$("#reply_btn").click(function(){
+										
+										var formObj = $(".replyForm form[role='form']");
+										var gdsNum = $("#gdsNum").val();
+										var repCon = $("#repCon").val();
+										
+										// ReplyVO 형태로 데이터 생성
+										var data = {
+												gdsNum : gdsNum,
+												repCon : repCon
+												};
+										
+										$.ajax({
+											url : "/shop/view/registReply",
+											type : "post",
+											data : data,
+											success : function(){
+												replyList();  // 리스트 새로고침
+												$("textarea#content").val("");  // 텍스트에어리어를 초기화
+											}
+										});
+									});
+								</script>
+
 									</div>
 
 								</form>
@@ -406,7 +459,7 @@ section.replyList div.replyContent {
 
 						<section class="replyList">
 							<ol>
-								<c:forEach items="${reply}" var="reply">
+								<%-- <c:forEach items="${reply}" var="reply">
 
 									<li>   
 										<div class="userInfo">
@@ -416,10 +469,14 @@ section.replyList div.replyContent {
 										</div>    
 										<div class="replyContent">${reply.repCon}</div>  
 									</li>
-  								</c:forEach>
+  								</c:forEach> --%>
 
 							</ol>
 							   
+							<script>
+ 								replyList();
+							</script>
+
 						</section>
 					</div>
 
