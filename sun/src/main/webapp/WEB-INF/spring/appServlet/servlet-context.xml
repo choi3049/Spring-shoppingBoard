@@ -32,6 +32,7 @@
 	<beans:bean id="AdminInterceptor"
 		class="com.sun.interceptor.AdminInterceptor" />
 
+	<!-- 어드민 접근 권한 -->
 	<interceptors>
 		<interceptor>
 			<mapping path="/admin/**" />
@@ -54,6 +55,8 @@
 		id="multipartResolver">
 		<beans:property name="maxUploadSize" value="10485760" />
 	</beans:bean>
+
+
 
 	<!-- 대체 이미지 경로 -->
 	<resources mapping="/images/**" location="/resources/images/" />
