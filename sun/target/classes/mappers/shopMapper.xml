@@ -59,8 +59,9 @@
 	<!-- 상품 소감(댓글) 삭제 -->
 	<delete id="deleteReply">
 		delete tbl_reply
-		    where repNum = #{repNum}
-		        and userId = #{userId}
+		    where repNum = #{repNum}        
+		and userId =
+		#{userId}
 	</delete>
 
 	<!-- 아이디 체크 -->
@@ -69,5 +70,13 @@
 		from tbl_reply
 		    where repNum = #{repNum}
 	</select>
+
+	<!-- 상품 소감(댓글) 수정 -->
+	<update id="modifyReply">
+		update tbl_reply
+		    set repCon = #{repCon}
+		where repNum = #{repNum}
+		        and userId = #{userId}
+	</update>
 
 </mapper> 
