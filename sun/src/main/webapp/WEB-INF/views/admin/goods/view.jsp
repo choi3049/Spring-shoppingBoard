@@ -160,32 +160,32 @@ textarea#gdsDes {
 				<%@ include file="../include/aside.jsp"%>
 			</aside>
 			<div id="container_box">
-				<h2>상품 조회</h2>
+				<h2>商品検索</h2>
 
 				<form role="form" method="post" autocomplete="off">
 
 					<input type="hidden" name="n" value="${goods.gdsNum}" />
 
 					<div class="inputArea">
-						<label>1차 분류</label> <span class="category1"></span> <label>2차
-							분류</label> <span class="category2">${goods.cateCode}</span>
+						<label>選択１</label> <span class="category1"></span> <label>選択２</label>
+						<span class="category2">${goods.cateCode}</span>
 					</div>
 
 					<div class="inputArea">
-						<label for="gdsName">상품명</label> <span>${goods.gdsName}</span>
+						<label for="gdsName">商品名</label> <span>${goods.gdsName}</span>
 					</div>
 
 					<div class="inputArea">
-						<label for="gdsPrice">상품가격</label> <span><fmt:formatNumber
-								value="${goods.gdsPrice}" pattern="###,###,###" /></span>
+						<label for="gdsPrice">価格</label> <span><fmt:formatNumber
+								value="${goods.gdsPrice}" pattern="###,###,###" /></span>円
 					</div>
 
 					<div class="inputArea">
-						<label for="gdsStock">상품수량</label> <span>${goods.gdsStock}</span>
+						<label for="gdsStock">商品数量</label> <span>${goods.gdsStock}</span>EA
 					</div>
 
 					<div class="inputArea">
-						<label for="gdsDes">상품소개</label>
+						<label for="gdsDes">商品紹介</label>
 
 						<!--  <span>${goods.gdsDes}</span>  -->
 
@@ -194,17 +194,17 @@ textarea#gdsDes {
 					</div>
 
 					<div class="inputArea">
-						<label for="gdsImg">이미지</label>
-						<p>원본 이미지</p>
+						<label for="gdsImg">写真</label>
+						<p>画像</p>
 						<img src="${goods.gdsImg}" class="oriImg" />
 
-						<p>썸네일</p>
+						<p>サムネイル</p>
 						<img src="${goods.gdsThumbImg}" class="thumbImg" />
 					</div>
 
 					<div class="inputArea">
-						<button type="button" id="modify_Btn" class="btn btn-warning">수정</button>
-						<button type="button" id="delete_Btn" class="btn btn-danger">삭제</button>
+						<button type="button" id="modify_Btn" class="btn btn-warning">修正</button>
+						<button type="button" id="delete_Btn" class="btn btn-danger">削除</button>
 					</div>
 
 					<script>
@@ -215,7 +215,7 @@ textarea#gdsDes {
 							formObj.submit();
 						});
 						$("#delete_Btn").click(function() {
-							var con = confirm("정말로 삭제하시겠습니까?");
+							var con = confirm("本当に削除してもいいですか？");
 							if (con) {
 								formObj.attr("action", "/admin/goods/delete");
 								formObj.submit();

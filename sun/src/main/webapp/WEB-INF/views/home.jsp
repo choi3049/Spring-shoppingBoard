@@ -182,7 +182,7 @@ footer#footer div#footer_box {
 
 		<section id="container">
 			<div id="container_box">
-				<section id="content">본문 영역</section>
+				<section id="content"></section>
 
 				<aside id="aside">
 					<%@ include file="include/aside.jsp"%>

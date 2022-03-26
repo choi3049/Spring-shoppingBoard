@@ -4,10 +4,10 @@
 <ul>
 <c:if test="${member != null}">
 	<li>
-		<a href="/">일반 화면</a>	
+		<a href="/">ユーザー画面</a>	
 	</li>
 	<li>
-		<a href="/member/signout">로그아웃</a>
+		<a href="/member/signout">ログアウト</a>
 	</li>
 </c:if>
 </ul>

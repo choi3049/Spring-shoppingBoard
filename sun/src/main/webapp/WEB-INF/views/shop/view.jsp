@@ -371,8 +371,8 @@ div.modalContent button.modal_cancel {
 				  + "<c:if test='${member != null}'>"
 				 
 				  + "<div class='replyFooter'>"
-				  + "<button type='button' class='modify' data-repNum='" + this.repNum + "'>수정</button>"
-				  + "<button type='button' class='delete' data-repNum='" + this.repNum + "'>삭제</button>"
+				  + "<button type='button' class='modify' data-repNum='" + this.repNum + "'>修正</button>"
+				  + "<button type='button' class='delete' data-repNum='" + this.repNum + "'>削除</button>"
 				  + "</div>"
 				 
 				  + "</c:if>"
@@ -413,25 +413,25 @@ div.modalContent button.modal_cancel {
 
 						<div class="goodsInfo">
 							<p class="gdsName">
-								<span>상품명</span>${view.gdsName}</p>
+								<span>商品名</span>${view.gdsName}</p>
 
 							<p class="cateName">
-								<span>카테고리</span>${view.cateName}</p>
+								<span>カテゴリ</span>${view.cateName}</p>
 
 							<p class="gdsPrice">
-								<span>가격 </span>
+								<span>価格</span>
 								<fmt:formatNumber pattern="###,###,###" value="${view.gdsPrice}" />
-								원
+								円
 							</p>
 
 							<p class="gdsStock">
-								<span>재고 </span>
+								<span>在庫</span>
 								<fmt:formatNumber pattern="###,###,###" value="${view.gdsStock}" />
 								EA
 							</p>
 
 							<p class="cartStock">
-								<span>구입 수량</span>
+								<span>購入数量</span>
 								<button type="button" class="plus">+</button>
 								<input type="number" class="numBox" min="1"
 									max="${view.gdsStock}" value="1" readonly="readonly" />
@@ -464,9 +464,6 @@ div.modalContent button.modal_cancel {
 
 							</p>
 
-							<p class="addToCart">
-								<button type="button">카트에 담기</button>
-							</p>
 						</div>
 
 						<div class="gdsDes">${view.gdsDes}</div>
@@ -476,7 +473,7 @@ div.modalContent button.modal_cancel {
 
 						<c:if test="${member == null }">
 							<p>
-								소감을 남기시려면 <a href="/member/signin">로그인</a>해주세요
+								クチコミを残すには <a href="/member/signin">ログイン</a>してください
 							</p>
 						</c:if>
 
@@ -492,7 +489,7 @@ div.modalContent button.modal_cancel {
 									</div>
 
 									<div class="input_area">
-										<button type="button" id="reply_btn">소감 남기기</button>
+										<button type="button" id="reply_btn">クチコミ</button>
 
 										<script>
 									$("#reply_btn").click(function(){
@@ -576,7 +573,7 @@ div.modalContent button.modal_cancel {
 							$(document).on("click", ".delete", function(){
 								
 								// 사용자에게 삭제 여부를 확인
-								var deletConfirm = confirm("정말로 삭제하시겠습니까?"); 
+								var deletConfirm = confirm("本当に削除してもいいですか？"); 
 								
 								if(deletConfirm) {
 								
@@ -592,12 +589,12 @@ div.modalContent button.modal_cancel {
 											if(result == 1) {
 												replyList();  // 리스트 새로고침
 											} else {
-												alert("작성자 본인만 할 수 있습니다.")  // 본인이 아닌 경우										
+												alert("作成者本人だけ修正できます。")  // 본인이 아닌 경우										
 											}
 										},
 										error : function(){
 											// 로그인하지 않아서 에러가 발생한 경우
-											alert("로그인하셔야합니다.")
+											alert("ログインしてください。")
 										}
 									});
 								}
@@ -634,8 +631,8 @@ div.modalContent button.modal_cancel {
 			</div>
 
 			<div>
-				<button type="button" class="modal_modify_btn">수정</button>
-				<button type="button" class="modal_cancel">취소</button>
+				<button type="button" class="modal_modify_btn">修正</button>
+				<button type="button" class="modal_cancel">キャンセル</button>
 			</div>
 
 		</div>
@@ -644,7 +641,7 @@ div.modalContent button.modal_cancel {
 
 	</div>
 
-<script>
+	<script>
 $(".modal_modify_btn").click(function(){
 	var modifyConfirm = confirm("정말로 수정하시겠습니까?");
 	

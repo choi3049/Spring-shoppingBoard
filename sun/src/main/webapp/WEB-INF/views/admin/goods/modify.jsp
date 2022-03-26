@@ -2,9 +2,8 @@
 	pageEncoding="UTF-8"%>
 <html>
 <head>
-<title>SUN Admin</title> ﻿
+<title>SUN Admin</title>
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-﻿
 
 
 <script src="/resources/ckeditor/ckeditor.js"></script>
@@ -151,7 +150,7 @@ textarea#gdsDes {
 			</aside>
 
 			<div id="container_box">
-				<h2>상품 수정</h2>
+				<h2>商品修正</h2>
 
 				<form role="form" method="post" autocomplete="off"
 					enctype="multipart/form-data">
@@ -159,26 +158,26 @@ textarea#gdsDes {
 					<input type="hidden" name="gdsNum" value="${goods.gdsNum}" />
 
 					<div class="inputArea">
-						<label>1차 분류</label> <select class="category1">
-							<option value="">전체</option>
-						</select> <label>2차 분류</label> <select class="category2" name="cateCode">
-							<option value="">전체</option>
+						<label>選択１</label> <select class="category1">
+							<option value="">全て</option>
+						</select> <label>選択２</label> <select class="category2" name="cateCode">
+							<option value="">全て</option>
 						</select>
 					</div>
 					<div class="inputArea">
-						<label for="gdsName">상품명</label> <input type="text" id="gdsName"
+						<label for="gdsName">商品名</label> <input type="text" id="gdsName"
 							name="gdsName" value="${goods.gdsName}" />
 					</div>
 					<div class="inputArea">
-						<label for="gdsPrice">상품가격</label> <input type="text"
+						<label for="gdsPrice">価格</label> <input type="text"
 							id="gdsPrice" name="gdsPrice" value="${goods.gdsPrice}" />
 					</div>
 					<div class="inputArea">
-						<label for="gdsStock">상품수량</label> <input type="text"
+						<label for="gdsStock">在庫</label> <input type="text"
 							id="gdsStock" name="gdsStock" value="${goods.gdsStock}" />
 					</div>
 					<div class="inputArea">
-						<label for="gdsDes">상품소개</label>
+						<label for="gdsDes">商品紹介</label>
 						<textarea rows="5" cols="50" id="gdsDes" name="gdsDes">${goods.gdsDes}</textarea>
 
 						<script>
@@ -195,7 +194,7 @@ textarea#gdsDes {
 					</div>
 
 					<div class="inputArea">
-						<label for="gdsImg">이미지</label> <input type="file" id="gdsImg"
+						<label for="gdsImg">画像</label> <input type="file" id="gdsImg"
 							name="file" />
 						<div class="select_img">
 							<img src="${goods.gdsImg}" /> <input type="hidden" name="gdsImg"
@@ -226,8 +225,8 @@ textarea#gdsDes {
 					</div>
 
 					<div class="inputArea">
-						<button type="submit" id="update_Btn" class="btn btn-primary">완료</button>
-						<button type="button" id="back_Btn" class="btn btn-warning">취소</button>
+						<button type="submit" id="update_Btn" class="btn btn-primary">完了</button>
+						<button type="button" id="back_Btn" class="btn btn-warning">キャンセル</button>
 
 						<script>
 							$("#back_Btn").click(function() {

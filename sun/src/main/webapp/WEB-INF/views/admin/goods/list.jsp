@@ -150,12 +150,12 @@ footer#footer ul li {
 				<table>
 					<thead>
 						<tr>
-							<th>썸네일</th>
-							<th>이름</th>
-							<th>카테고리</th>
-							<th>가격</th>
-							<th>수량</th>
-							<th>등록날짜</th>
+							<th>画像</th>
+							<th>商品名</th>
+							<th>カテゴリ</th>
+							<th>価格</th>
+							<th>数量</th>
+							<th>登録日</th>
 						</tr>
 					</thead>
 					<tbody>
@@ -168,8 +168,8 @@ footer#footer ul li {
 									<!-- ${list.cateCode} --> ${list.cateName}
 								</td>
 								<td><fmt:formatNumber value="${list.gdsPrice}"
-										pattern="###,###,###" /></td>
-								<td>${list.gdsStock}</td>
+										pattern="###,###,###" />円</td>
+								<td>${list.gdsStock}EA</td>
 								<td><fmt:formatDate value="${list.gdsDate}"
 										pattern="yyyy-MM-dd" /></td>
 							</tr>

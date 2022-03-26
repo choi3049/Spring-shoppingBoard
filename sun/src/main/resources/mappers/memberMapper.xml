@@ -19,4 +19,4 @@
 		where userId = #{userId}
 	</select>
 
-</mapper> 
+</mapper>
